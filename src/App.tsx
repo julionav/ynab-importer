@@ -8,17 +8,18 @@ function App() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <div className="bg-green-400 min-h-screen font-sans">
-      <div className="pt-20">
+    <div className="bg-gray-100 min-h-screen font-sans">
+      <div className="pt-20 space-y-4 w-1/2 mx-auto">
+        <h1 className="text-2xl">Convert your CSV file to YNAB format</h1>
         <div
-          className="mx-auto bg-white rounded w-1/2 max-w-3xl flex h-64 justify-center items-center"
+          className="mx-auto bg-white rounded flex h-64 justify-center items-center"
           {...getRootProps()}
         >
           <input {...getInputProps()} />
           {isDragActive ? (
-            <p>Drop the files here ...</p>
+            <p>Drop the file here ...</p>
           ) : (
-            <p>Drag 'n' drop some files here, or click to select files</p>
+            <p>Drag 'n' drop the CSV file here</p>
           )}
         </div>
       </div>
