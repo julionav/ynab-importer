@@ -16,7 +16,9 @@ export type YANBRecord = {
   inflow: string | null;
 };
 
-const CONVERSION_FACTOR = process.env.REACT_APP_CONVERSION_FACTOR || 3.55;
+const CONVERSION_FACTOR = process.env.REACT_APP_CONVERSION_FACTOR
+  ? Number(process.env.REACT_APP_CONVERSION_FACTOR)
+  : 3.55;
 
 function bcpToYNAB(bcpCollection: BCPRow[]): YANBRecord[] {
   const ynabRecords: YANBRecord[] = [];
