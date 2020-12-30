@@ -55,7 +55,6 @@ function readFile(file: File): Promise<string> {
 }
 
 function App() {
-  const [data, setData] = React.useState("");
   const [ynabCollection, setYNABCollection] = React.useState<
     YANBRecord[] | null
   >(null);
