@@ -11,7 +11,7 @@ function parseCSV(csv: string): string[][] {
   return lines.map(parseLine);
 }
 
-export function csvToCollection(csv: string): object {
+export function csvToCollection(csv: string): object[] {
   const parsed = parseCSV(csv);
   const headers = parsed[0];
   const collection: object[] = [];
@@ -23,4 +23,14 @@ export function csvToCollection(csv: string): object {
     collection.push(lineObj);
   }
   return collection;
+}
+
+export function collectionToCSV(collection: object[]): string {
+  const headers = Object.keys(collection[0]);
+  const rows = [];
+  rows.push(headers.join(","));
+  for (let record of collection.slice(1)) {
+    rows.push(Object.values(record).join(","));
+  }
+  return rows.join("\n");
 }
